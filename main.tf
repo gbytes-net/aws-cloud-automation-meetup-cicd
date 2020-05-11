@@ -43,7 +43,7 @@ data "template_file" "build_rule" {
 
   vars = {
     codepipeline_name = module.cicd_pipeline.codepipeline_name
-    state = "SUCCEEDED"
+    state = "FAILED"
   }
 }
 
