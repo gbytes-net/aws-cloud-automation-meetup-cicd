@@ -32,3 +32,28 @@ module "cicd_pipeline" {
   branch = "master"
   repository_name = var.application_code_reponame
 }
+
+#
+# create our slack notifications for a failed build
+#
+
+# our build event rule
+data "template_file" "build_rule" {
+  template = file("pipeline_event_rule.tpl")
+
+  vars = {
+    codepipeline-name = module.cicd_pipeline.codepipeline_name
+    state = "SUCCEEDED"
+  }
+}
+
+module "cicd_notification" {
+  source = "./cicd_notification"
+
+
+  message = "Build Failed, check your logs"
+  name = "cool_webapp"
+  rule = data.template_file.build_rule.rendered
+  slack_url = "https://hooks.slack.com/services/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"
+  subject = "cool webapp - build failed"
+}
