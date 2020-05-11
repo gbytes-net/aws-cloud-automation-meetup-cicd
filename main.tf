@@ -54,6 +54,6 @@ module "cicd_notification" {
   message = "Build Failed, check your logs"
   name = "cool_webapp"
   rule = data.template_file.build_rule.rendered
-  slack_url = "https://hooks.slack.com/services/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"
+  slack_url = var.slack_url
   subject = "cool webapp - build failed"
 }
