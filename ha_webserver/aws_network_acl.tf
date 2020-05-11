@@ -61,7 +61,7 @@ resource "aws_network_acl" "public_acl" {
     from_port = 443
     protocol = "tcp"
     rule_no = 200
-    to_port = 433
+    to_port = 443
     cidr_block = "0.0.0.0/0"
   }
 
