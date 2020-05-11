@@ -58,7 +58,7 @@ resource "aws_network_acl" "public_acl" {
   # outbound https
   egress {
     action = "allow"
-    from_port = 433
+    from_port = 443
     protocol = "tcp"
     rule_no = 200
     to_port = 433
