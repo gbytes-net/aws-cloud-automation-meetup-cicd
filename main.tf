@@ -42,7 +42,7 @@ data "template_file" "build_rule" {
   template = file("pipeline_event_rule.tpl")
 
   vars = {
-    codepipeline-name = module.cicd_pipeline.codepipeline_name
+    codepipeline_name = module.cicd_pipeline.codepipeline_name
     state = "SUCCEEDED"
   }
 }
