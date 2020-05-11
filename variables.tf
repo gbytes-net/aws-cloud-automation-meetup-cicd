@@ -40,6 +40,6 @@ variable "application_code_reponame" {
   default = "cool_webapp"
 }
 
-var "slack_url" {
+variable "slack_url" {
   type = string
 }
