@@ -1,9 +1,9 @@
-resource "aws_lb" "multi-instance-lb" {
+resource "aws_lb" "this" {
   name               = "multi-instance-lb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = ["${aws_security_group.ec2-sg-web.id}"]
-  subnets            = [aws_subnet.template-public.id, aws_subnet.template-public-2.id]
+  security_groups    = [aws_security_group.this.id]
+  subnets            = [aws_subnet.public1.id, aws_subnet.public2.id]
 
   enable_deletion_protection = false
 

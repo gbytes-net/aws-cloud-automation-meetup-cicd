@@ -1,6 +1,6 @@
-resource "aws_internet_gateway" "template-internet-gateway" {
+resource "aws_internet_gateway" "this" {
 
-  vpc_id = aws_vpc.template-vpc.id
+  vpc_id = aws_vpc.this.id
 
   tags = {
     Name = "${var.project}-ig"

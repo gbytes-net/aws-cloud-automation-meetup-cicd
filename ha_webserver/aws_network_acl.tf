@@ -1,8 +1,8 @@
-resource "aws_network_acl" "public-acl" {
-  vpc_id = aws_vpc.template-vpc.id
+resource "aws_network_acl" "public_acl" {
+  vpc_id = aws_vpc.this.id
 
   subnet_ids = [
-    aws_subnet.template-public.id]
+    aws_subnet.public1.id]
 
   # inbound http
   ingress {
@@ -93,8 +93,8 @@ resource "aws_network_acl" "public-acl" {
 
 # the private subnet is automatically associated with the default acl
 # remember that we don't have a route to the private subnet from the outside
-resource "aws_default_network_acl" "default-acl" {
-  default_network_acl_id = aws_vpc.template-vpc.default_network_acl_id
+resource "aws_default_network_acl" "default_acl" {
+  default_network_acl_id = aws_vpc.this.default_network_acl_id
 
   ingress {
     protocol = -1
@@ -119,5 +119,3 @@ resource "aws_default_network_acl" "default-acl" {
     Project = var.project
   }
 }
-
-

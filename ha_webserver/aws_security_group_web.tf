@@ -1,7 +1,7 @@
-resource "aws_security_group" "ec2-sg-web" {
+resource "aws_security_group" "this" {
   name = "ec2-public-webserver-sg"
   description = "Allow ssh & http inbound traffic"
-  vpc_id = aws_vpc.template-vpc.id
+  vpc_id = aws_vpc.this.id
 
   ingress {
     description = "TLS from VPC"

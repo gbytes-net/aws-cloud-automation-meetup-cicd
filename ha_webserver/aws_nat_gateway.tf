@@ -1,12 +1,12 @@
-resource "aws_eip" "nat-elastic-ip" {
+resource "aws_eip" "this" {
   vpc = true
 
-  depends_on = [aws_internet_gateway.template-internet-gateway]
+  depends_on = [aws_internet_gateway.this]
 }
 
-resource "aws_nat_gateway" "nat-gateway" {
-  allocation_id = aws_eip.nat-elastic-ip.id
-  subnet_id = aws_subnet.template-public.id
+resource "aws_nat_gateway" "this" {
+  allocation_id = aws_eip.this.id
+  subnet_id = aws_subnet.public1.id
 
   tags = {
     Name = "${var.project}-nat-gw"
@@ -17,11 +17,11 @@ resource "aws_nat_gateway" "nat-gateway" {
 # add a route for traffic to the internet through the NAT gateway
 # this way our private subnet can access the internet
 resource "aws_default_route_table" "default-route-table" {
-  default_route_table_id = aws_vpc.template-vpc.default_route_table_id
+  default_route_table_id = aws_vpc.this.default_route_table_id
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat-gateway.id
+    nat_gateway_id = aws_nat_gateway.this.id
   }
 
   tags = {
