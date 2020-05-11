@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "build_cache" {
-  bucket = "codepipeline-${var.application_name}-${var.branch}"
+  # make sure bucket name is DNS compliant
+  bucket = replace("codepipeline_${var.application_name}_${var.branch}", "_", "-" )
   acl = "private"
 }
 
@@ -95,7 +96,7 @@ resource "aws_codepipeline" "this" {
       version = "1"
 
       configuration = {
-        BucketName = aws_s3_bucket.published_cicd_artifacts.bucket
+        BucketName = aws_s3_bucket.published_artifacts.bucket
         Extract = false
 
         ObjectKey = "${var.application_name}-{datetime}--#{SourceVariables.CommitId}.zip"
