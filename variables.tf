@@ -1,3 +1,6 @@
+#
+# arguments for our highly available web server
+#
 variable "ami_id" {
   type = string
   default = "ami-0a887e401f7654935"
@@ -22,4 +25,17 @@ variable "webserver_domain_zone" {
 variable "webserver_domain" {
   type = string
   default = "aws-meetup-cicd.f1kart.com"
+}
+
+variable "project" {
+  type = string
+  default = "cool_webapp"
+}
+
+#
+# arguments for our cicd pipeline
+#
+variable "application_code_reponame" {
+  type = string
+  default = "cool_webapp"
 }
