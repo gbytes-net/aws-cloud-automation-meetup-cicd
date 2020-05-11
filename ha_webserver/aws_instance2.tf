@@ -5,7 +5,7 @@ resource "aws_instance" "public2" {
   # this is optional, but needed if you want to ssh into your ec2 instance
   # here I have manually created a key pair in the console and I'm supplying the
   # name.
-  #key_name = "terraform-templates-vpc"
+  key_name = "ha_webserver"
 
   user_data = file(var.user_data_1)
 
