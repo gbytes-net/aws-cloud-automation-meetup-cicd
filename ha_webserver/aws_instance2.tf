@@ -14,6 +14,8 @@ resource "aws_instance" "public2" {
 
   subnet_id = var.public_subnet2_id
 
+  iam_instance_profile = aws_iam_instance_profile.this.id
+
   tags = {
     Name = var.project
     Project = var.project
