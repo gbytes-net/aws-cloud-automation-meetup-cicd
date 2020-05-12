@@ -1,4 +1,14 @@
 #
+# create out VPC
+#
+module "vpc" {
+  source = "./vpc"
+
+  availability_zones = [var.availability_zone_1, var.availability_zone_2]
+  project = var.project
+}
+
+#
 # create our load balanced ec2 webserver
 #
 module "ha_multi_instance" {
@@ -14,7 +24,12 @@ module "ha_multi_instance" {
     var.availability_zone_1,
     var.availability_zone_2]
   project = var.project
-  user_data = "webserver_install_1.sh"
+  user_data = "webserver_install.sh"
+
+  # pass vpc details
+  public_subnet1_id = ""
+  public_subnet2_id = ""
+  vpc_id = ""
 
   # setup our domain
   webserver_domain = var.webserver_domain
