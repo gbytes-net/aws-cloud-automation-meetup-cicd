@@ -39,9 +39,4 @@ resource "aws_codedeploy_deployment_group" "this" {
     enabled = true
     events  = ["DEPLOYMENT_FAILURE"]
   }
-
-  alarm_configuration {
-    alarms  = ["my-alarm-name"]
-    enabled = true
-  }
 }
