@@ -20,9 +20,6 @@ module "ha_multi_instance" {
 
   # seutp our instances
   ami_id = var.ami_id
-  availability_zones = [
-    var.availability_zone_1,
-    var.availability_zone_2]
   project = var.project
   user_data = "webserver_install.sh"
 
