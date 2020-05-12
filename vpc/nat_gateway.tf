@@ -17,10 +17,6 @@ resource "aws_nat_gateway" "this" {
     Name = "${var.application_name}-nat-gw"
     Project = var.application_name
   }
-
-  tags = {
-    Application = var.application_name
-  }
 }
 
 # add a route for traffic to the internet through the NAT gateway

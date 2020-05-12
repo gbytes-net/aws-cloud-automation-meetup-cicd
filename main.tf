@@ -12,7 +12,7 @@ module "vpc" {
 # create our load balanced ec2 webserver
 #
 module "ha_multi_instance" {
-  source = "./ha_webserver"
+  source = "./webserver"
 
   providers = {
     aws = aws.north-america
