@@ -29,3 +29,4 @@ A highly available front-end web application & API with CI/CD build system capab
 * Two AWS EC2 for the webserver(loadbalancer)
 * AWS CodeCommit to store the web application code
 * AWS Codepipeline, CodeBuild, & CodeDeploy for the CI/CD system
+
