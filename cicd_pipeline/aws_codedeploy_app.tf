@@ -29,15 +29,9 @@ resource "aws_codedeploy_deployment_group" "this" {
 
   ec2_tag_set {
     ec2_tag_filter {
-      key   = "filterkey1"
+      key   = "Project"
       type  = "KEY_AND_VALUE"
-      value = "filtervalue"
-    }
-
-    ec2_tag_filter {
-      key   = "filterkey2"
-      type  = "KEY_AND_VALUE"
-      value = "filtervalue"
+      value = var.application_name
     }
   }
 
