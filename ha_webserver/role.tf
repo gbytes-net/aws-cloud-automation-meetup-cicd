@@ -15,6 +15,10 @@ resource "aws_iam_role" "this" {
   ]
 }
 EOF
+
+  tags = {
+    Application = var.application_name
+  }
 }
 
 data "aws_iam_policy_document" "this" {

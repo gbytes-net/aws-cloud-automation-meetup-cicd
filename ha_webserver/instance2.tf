@@ -1,4 +1,4 @@
-resource "aws_instance" "public1" {
+resource "aws_instance" "public2" {
   ami = var.ami_id
   instance_type = "t2.micro"
 
@@ -12,12 +12,12 @@ resource "aws_instance" "public1" {
   vpc_security_group_ids = [
     aws_security_group.this.id]
 
-  subnet_id = var.public_subnet1_id
+  subnet_id = var.public_subnet2_id
 
   iam_instance_profile = aws_iam_instance_profile.this.id
 
   tags = {
     Name = var.application_name
-    Project = var.application_name
+    Application = var.application_name
   }
 }

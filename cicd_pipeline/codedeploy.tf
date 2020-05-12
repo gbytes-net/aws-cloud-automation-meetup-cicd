@@ -1,5 +1,9 @@
 resource "aws_codedeploy_app" "this" {
   name = var.application_name
+
+  tags = {
+    Application = var.application_name
+  }
 }
 
 resource "aws_iam_role" "codedeploy" {
@@ -102,9 +106,5 @@ resource "aws_codedeploy_deployment_group" "this" {
     enabled = true
     events = [
       "DEPLOYMENT_FAILURE"]
-  }
-
-  tags = {
-    Application = var.application_name
   }
 }

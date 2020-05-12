@@ -9,6 +9,6 @@ resource "aws_lb" "this" {
   enable_deletion_protection = false
 
   tags = {
-    Project = var.application_name
+    Application = var.application_name
   }
 }
