@@ -1,6 +1,6 @@
 resource "aws_lb" "this" {
   # name must be alphanumberic
-  name               = resplace(var.project,"/[^a-zA-Z0-9 -]/", "")
+  name               = replace(var.project,"/[^a-zA-Z0-9 -]/", "")
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.this.id]
