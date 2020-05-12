@@ -16,4 +16,4 @@ sudo service codedeploy-agent status
 sudo yum install httpd -y
 sudo service httpd start
 sudo chkconfig httpd on
-echo "<h1>Instance 1</h1>" | sudo tee /var/www/html/index.html
+echo "<h1>Instance</h1>" | sudo tee /var/www/html/index.html
