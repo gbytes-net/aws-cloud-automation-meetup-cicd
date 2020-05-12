@@ -22,3 +22,11 @@ module "webserver" {
   webserver_domain = var.webserver_domain
   webserver_domain_zone = var.webserver_domain_zone
 }
+
+module "pipeline" {
+  source = "./cicd_pipeline"
+
+  application_name = var.application_name
+  branch = "master"
+  repository_name = var.application_code_reponame
+}
