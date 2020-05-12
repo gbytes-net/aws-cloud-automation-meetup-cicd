@@ -87,19 +87,17 @@ resource "aws_codepipeline" "this" {
     name = "Deploy"
 
     action {
-      name = "CopyToS3"
+      name = "Deploy"
       category = "Deploy"
       owner = "AWS"
-      provider = "S3"
+      provider = "CodeDeploy"
       input_artifacts = [
         "BuildArtifact"]
       version = "1"
 
       configuration = {
-        BucketName = aws_s3_bucket.published_artifacts.bucket
-        Extract = false
-
-        ObjectKey = "${var.application_name}-{datetime}--#{SourceVariables.CommitId}.zip"
+        ApplicationName = aws_codedeploy_app.this.name
+        DeploymentGroup = aws_codedeploy_deployment_group.this.deployment_group_name
       }
     }
   }
