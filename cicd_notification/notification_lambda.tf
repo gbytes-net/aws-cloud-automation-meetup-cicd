@@ -1,4 +1,3 @@
-
 variable "lambda_file" {
   type = string
   default = "notification_lambda.py"
@@ -34,13 +33,17 @@ resource "aws_iam_role" "lambda" {
   ]
 }
 EOF
+
+  tags = {
+    Application = var.application_name
+  }
 }
 
 resource "aws_lambda_function" "this" {
-  filename      = "${path.module}/${var.lambda_zip_file}"
+  filename = "${path.module}/${var.lambda_zip_file}"
   function_name = var.application_name
-  role          = aws_iam_role.lambda.arn
-  handler       = "notification_lambda.send_message"
+  role = aws_iam_role.lambda.arn
+  handler = "notification_lambda.send_message"
 
   source_code_hash = filebase64sha256("${path.module}/${var.lambda_zip_file}")
 
@@ -56,6 +59,11 @@ resource "aws_lambda_function" "this" {
     }
   }
 
-  depends_on = [data.archive_file.this]
+  tags = {
+    Application = var.application_name
+  }
+
+  depends_on = [
+    data.archive_file.this]
 }
 
