@@ -17,7 +17,7 @@ resource "aws_instance" "public1" {
   iam_instance_profile = aws_iam_instance_profile.this.id
 
   tags = {
-    Name = var.project
-    Project = var.project
+    Name = var.application_name
+    Project = var.application_name
   }
 }

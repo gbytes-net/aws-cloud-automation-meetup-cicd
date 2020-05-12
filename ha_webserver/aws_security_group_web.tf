@@ -30,7 +30,7 @@ resource "aws_security_group" "this" {
   }
 
   tags = {
-    Name = "${var.project}-public-webserver-sg"
-    Project = var.project
+    Name = "${var.application_name}-public-webserver-sg"
+    Project = var.application_name
   }
 }

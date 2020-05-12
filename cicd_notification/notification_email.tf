@@ -1,6 +1,6 @@
 
 resource "aws_sns_topic" "this" {
-  name = var.name
+  name = var.application_name
 }
 
 data "aws_iam_policy_document" "topic" {

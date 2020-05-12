@@ -1,5 +1,5 @@
 resource "aws_lb_target_group" "this" {
-  name     = replace(var.project,"/[^a-zA-Z0-9 -]/", "")
+  name     = replace(var.application_name,"/[^a-zA-Z0-9 -]/", "")
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id

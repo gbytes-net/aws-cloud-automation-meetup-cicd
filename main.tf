@@ -5,7 +5,7 @@ module "vpc" {
   source = "./vpc"
 
   availability_zones = [var.availability_zone_1, var.availability_zone_2]
-  project = var.project
+  project = var.application_name
 }
 
 #
@@ -20,7 +20,7 @@ module "ha_multi_instance" {
 
   # setup our instance
   ami_id = var.ami_id
-  project = var.project
+  application_name = var.application_name
 
   # pass vpc details
   public_subnet1_id = module.vpc.public_subnet1_id
@@ -63,7 +63,7 @@ module "cicd_notification" {
 
 
   message = "Build Failed, check your logs"
-  name = "cool_webapp"
+  application_name = "cool_webapp"
   rule = data.template_file.build_rule.rendered
   slack_url = var.slack_url
   subject = "cool webapp - build failed"

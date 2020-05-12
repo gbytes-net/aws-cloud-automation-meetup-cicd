@@ -1,4 +1,4 @@
-variable "name" {
+variable "application_name" {
   type = string
 }
 

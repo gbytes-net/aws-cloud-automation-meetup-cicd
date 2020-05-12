@@ -27,7 +27,7 @@ variable "webserver_domain" {
   default = "aws-meetup-cicd.f1kart.com"
 }
 
-variable "project" {
+variable "application_name" {
   type = string
   default = "cool_webapp"
 }
@@ -40,6 +40,9 @@ variable "application_code_reponame" {
   default = "cool_webapp"
 }
 
+#
+# slack webhook where we get the build notification
+#
 variable "slack_url" {
   type = string
 }

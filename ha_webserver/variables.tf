@@ -2,7 +2,7 @@ variable "ami_id" {
   type = string
   description = "The AMI ID to use for EC2"
 }
-variable "project" {
+variable "application_name" {
   type = string
   description = "The name of the project using this module"
 }

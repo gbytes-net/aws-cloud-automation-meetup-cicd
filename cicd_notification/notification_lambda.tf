@@ -17,7 +17,7 @@ data "archive_file" "this" {
 }
 
 resource "aws_iam_role" "lambda" {
-  name = var.name
+  name = var.application_name
 
   assume_role_policy = <<-EOF
 {
@@ -38,7 +38,7 @@ EOF
 
 resource "aws_lambda_function" "this" {
   filename      = "${path.module}/${var.lambda_zip_file}"
-  function_name = var.name
+  function_name = var.application_name
   role          = aws_iam_role.lambda.arn
   handler       = "notification_lambda.send_message"
 

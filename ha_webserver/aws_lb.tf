@@ -1,6 +1,6 @@
 resource "aws_lb" "this" {
   # name must be alphanumberic
-  name               = replace(var.project,"/[^a-zA-Z0-9 -]/", "")
+  name               = replace(var.application_name,"/[^a-zA-Z0-9 -]/", "")
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.this.id]
@@ -9,6 +9,6 @@ resource "aws_lb" "this" {
   enable_deletion_protection = false
 
   tags = {
-    Project = var.project
+    Project = var.application_name
   }
 }
