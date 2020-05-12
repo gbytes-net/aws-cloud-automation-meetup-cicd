@@ -13,3 +13,8 @@ A highly available front-end web application & API with CI/CD build system capab
 * notification
 
 ![logo](docs/cicd-architecture.png)
+
+
+## code pipeline architecture
+
+![logo](docs/cicd-pipeline-architecture.png)
