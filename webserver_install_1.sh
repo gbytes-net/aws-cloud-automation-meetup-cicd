@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo yum update -y
 
+#
 # install code deploy agent
 sudo yum install ruby -y
 sudo yum install wget -y
@@ -10,6 +11,7 @@ chmod +x ./install
 sudo ./install auto
 sudo service codedeploy-agent status
 
+#
 # install apache
 sudo yum install httpd -y
 sudo service httpd start
