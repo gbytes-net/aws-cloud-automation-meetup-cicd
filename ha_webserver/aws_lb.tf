@@ -1,5 +1,6 @@
 resource "aws_lb" "this" {
-  name               = var.project
+  # name must be alphanumberic
+  name               = regexall("[^a-zA-Z0-9 -]", var.project)
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.this.id]
