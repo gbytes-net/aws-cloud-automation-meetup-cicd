@@ -4,7 +4,7 @@ resource "aws_vpc" "this" {
   assign_generated_ipv6_cidr_block = true
 
   tags = {
-    Name = "${var.project}-template-vpc"
-    Project = var.project
+    Name = "${var.application_name}-template-vpc"
+    Application = var.application_name
   }
 }

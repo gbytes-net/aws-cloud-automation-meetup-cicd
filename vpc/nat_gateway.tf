@@ -1,7 +1,12 @@
 resource "aws_eip" "this" {
   vpc = true
 
-  depends_on = [aws_internet_gateway.this]
+  depends_on = [
+    aws_internet_gateway.this]
+
+  tags = {
+    Application = var.application_name
+  }
 }
 
 resource "aws_nat_gateway" "this" {
@@ -9,8 +14,12 @@ resource "aws_nat_gateway" "this" {
   subnet_id = aws_subnet.public1.id
 
   tags = {
-    Name = "${var.project}-nat-gw"
-    Project = var.project
+    Name = "${var.application_name}-nat-gw"
+    Project = var.application_name
+  }
+
+  tags = {
+    Application = var.application_name
   }
 }
 
@@ -25,7 +34,7 @@ resource "aws_default_route_table" "default-route-table" {
   }
 
   tags = {
-    Name = "${var.project}-main-route-table"
-    Project = var.project
+    Name = "${var.application_name}-main-route-table"
+    Application = var.application_name
   }
 }

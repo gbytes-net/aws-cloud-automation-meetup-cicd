@@ -16,7 +16,7 @@ resource "aws_route_table" "public_route_table" {
   }
 
   tags = {
-    Name = "${var.project}-public-route-table"
-    Project = var.project
+    Name = "${var.application_name}-public-route-table"
+    Application = var.application_name
   }
 }

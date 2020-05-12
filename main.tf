@@ -5,7 +5,7 @@ module "vpc" {
   source = "./vpc"
 
   availability_zones = [var.availability_zone_1, var.availability_zone_2]
-  project = var.application_name
+  application_name = var.application_name
 }
 
 #

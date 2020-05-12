@@ -7,8 +7,8 @@ resource "aws_subnet" "public1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.project}-template-public"
-    Project = var.project
+    Name = "${var.application_name}-template-public"
+    Application = var.application_name
   }
 }
 
@@ -21,8 +21,8 @@ resource "aws_subnet" "public2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.project}-template-public-2"
-    Project = var.project
+    Name = "${var.application_name}-template-public-2"
+    Application = var.application_name
   }
 }
 
@@ -35,8 +35,8 @@ resource "aws_subnet" "private1" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "${var.project}-template-private"
-    Project = var.project
+    Name = "${var.application_name}-template-private"
+    Application = var.application_name
   }
 }
 
@@ -49,12 +49,10 @@ resource "aws_subnet" "private2" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "${var.project}-template-private-2"
-    Project = var.project
+    Name = "${var.application_name}-template-private-2"
+    Application = var.application_name
   }
 }
-
-
 
 # we link our public route table to our public subnet
 resource "aws_route_table_association" "public1_route_table_association" {

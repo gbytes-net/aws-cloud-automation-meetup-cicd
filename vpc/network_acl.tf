@@ -86,8 +86,8 @@ resource "aws_network_acl" "public_acl" {
   }
 
   tags = {
-    Name = "${var.project}-public-acl"
-    Project = var.project
+    Name = "${var.application_name}-public-acl"
+    Application = var.application_name
   }
 }
 
@@ -115,7 +115,7 @@ resource "aws_default_network_acl" "default_acl" {
   }
 
   tags = {
-    Name = "${var.project}-default-acl"
-    Project = var.project
+    Name = "${var.application_name}-default-acl"
+    Application = var.application_name
   }
 }
