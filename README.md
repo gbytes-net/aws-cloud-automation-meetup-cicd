@@ -18,3 +18,14 @@ A highly available front-end web application & API with CI/CD build system capab
 ## code pipeline architecture
 
 ![logo](docs/cicd-pipeline-architecture.png)
+
+## development tech stack
+
+* IDE: PyCharm with Terraform Extensions(without this you will suffer)
+* Terraform.IO Cloud for automated Terraform Planning & Apply
+* Github for storing the terraform code
+
+## web application tech stack
+* Two AWS EC2 for the webserver(loadbalancer)
+* AWS CodeCommit to store the web application code
+* AWS Codepipeline, CodeBuild, & CodeDeploy for the CI/CD system
