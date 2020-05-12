@@ -11,3 +11,5 @@ A highly available front-end web application & API with CI/CD build system capab
 * webserver
 * vpc
 * notification
+
+[docs/cicd-architecture.png]
