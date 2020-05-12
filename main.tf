@@ -30,3 +30,24 @@ module "pipeline" {
   branch = "master"
   repository_name = var.application_code_reponame
 }
+
+
+# our build event rule
+data "template_file" "build_rule" {
+  template = file("pipeline_event_rule.tpl")
+
+  vars = {
+    codepipeline_name = module.pipeline.codepipeline_name
+    state = "SUCCEEDED"
+  }
+}
+
+module "notification_build_succeeded" {
+  source = "./cicd_notification"
+
+  application_name = var.application_name
+  message = "Your Build Succeeded, you are awesome!"
+  rule = ""
+  slack_url = var.slack_url
+  subject = "Build Notifier"
+}
