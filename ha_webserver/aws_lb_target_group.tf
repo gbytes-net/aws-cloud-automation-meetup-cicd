@@ -1,8 +1,8 @@
 resource "aws_lb_target_group" "this" {
-  name     = "multi-instance-tg"
+  name     = var.project
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.this.id
+  vpc_id   = var.vpc_id
 }
 
 resource "aws_lb_listener" "this" {

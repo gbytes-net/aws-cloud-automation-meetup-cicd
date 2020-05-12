@@ -1,5 +1,3 @@
-
-
 resource "aws_instance" "public1" {
   ami = var.ami_id
   instance_type = "t2.micro"
@@ -9,15 +7,15 @@ resource "aws_instance" "public1" {
   # name.
   key_name = "ha_webserver"
 
-  user_data = file(var.user_data_1)
+  user_data = file(var.user_data)
 
   vpc_security_group_ids = [
     aws_security_group.this.id]
 
-  subnet_id = aws_subnet.public1.id
+  subnet_id = var.public_subnet1_id
 
   tags = {
-    Name = "${var.project}-public-ec2-webserver"
+    Name = var.project
     Project = var.project
   }
 }

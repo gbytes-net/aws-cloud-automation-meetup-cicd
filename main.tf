@@ -14,7 +14,7 @@ module "ha_multi_instance" {
     var.availability_zone_1,
     var.availability_zone_2]
   project = var.project
-  user_data_1 = "webserver_install_1.sh"
+  user_data = "webserver_install_1.sh"
 
   # setup our domain
   webserver_domain = var.webserver_domain

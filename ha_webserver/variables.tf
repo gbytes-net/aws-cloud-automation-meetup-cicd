@@ -1,10 +1,4 @@
-variable "availability_zones" {
-  type = list(string)
-
-  description = "the availability zone names for the region"
-}
-
-variable "user_data_1" {
+variable "user_data" {
   type = string
   description = "path to the user_data file to use to configure EC2"
 }
@@ -23,5 +17,17 @@ variable "webserver_domain_zone" {
 }
 
 variable "webserver_domain" {
+  type = string
+}
+
+variable "vpc_id" {
+  type = string
+}
+
+variable "public_subnet1_id" {
+  type = string
+}
+
+variable "public_subnet2_id" {
   type = string
 }
