@@ -12,4 +12,4 @@ A highly available front-end web application & API with CI/CD build system capab
 * vpc
 * notification
 
-[text](docs/cicd-architecture.png)
+[logo]: (docs/cicd-architecture.png)
