@@ -97,7 +97,6 @@ resource "aws_codepipeline" "this" {
 
       configuration = {
         ApplicationName = aws_codedeploy_app.this.name
-        DeploymentGroup = aws_codedeploy_deployment_group.this.deployment_group_name
       }
     }
   }
