@@ -47,7 +47,7 @@ module "notification_build_succeeded" {
 
   application_name = var.application_name
   message = "Your Build Succeeded, you are awesome!"
-  rule = ""
+  rule = data.template_file.build_rule.rendered
   slack_url = var.slack_url
   subject = "Build Notifier"
 }
