@@ -15,6 +15,10 @@ resource "aws_iam_role" "codebuild" {
   ]
 }
 EOF
+
+  tags = {
+    Application = var.application_name
+  }
 }
 
 data "aws_iam_policy_document" "codebuild" {
@@ -101,6 +105,6 @@ resource "aws_codebuild_project" "this" {
   }
 
   tags = {
-    Projectr = var.application_name
+    Application = var.application_name
   }
 }

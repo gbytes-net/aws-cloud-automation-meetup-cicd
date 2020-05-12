@@ -2,6 +2,10 @@ resource "aws_s3_bucket" "build_cache" {
   # make sure bucket name is DNS compliant
   bucket = replace("codepipeline_${var.application_name}_${var.branch}", "_", "-" )
   acl = "private"
+
+  tags = {
+    Application = var.application_name
+  }
 }
 
 resource "aws_iam_role" "codepipeline" {
@@ -21,6 +25,10 @@ resource "aws_iam_role" "codepipeline" {
   ]
 }
 EOF
+
+  tags = {
+    Application = var.application_name
+  }
 }
 
 resource "aws_iam_role_policy" "codepipeline" {
@@ -100,5 +108,9 @@ resource "aws_codepipeline" "this" {
         DeploymentGroupName = aws_codedeploy_deployment_group.this.deployment_group_name
       }
     }
+  }
+
+  tags = {
+    Application = var.application_name
   }
 }

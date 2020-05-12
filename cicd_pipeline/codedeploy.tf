@@ -20,6 +20,10 @@ resource "aws_iam_role" "codedeploy" {
   ]
 }
 EOF
+
+  tags = {
+    Application = var.application_name
+  }
 }
 
 data "aws_iam_policy_document" "codedeploy" {
@@ -88,7 +92,7 @@ resource "aws_codedeploy_deployment_group" "this" {
 
   ec2_tag_set {
     ec2_tag_filter {
-      key = "Project"
+      key = "Application"
       type = "KEY_AND_VALUE"
       value = var.application_name
     }
@@ -98,5 +102,9 @@ resource "aws_codedeploy_deployment_group" "this" {
     enabled = true
     events = [
       "DEPLOYMENT_FAILURE"]
+  }
+
+  tags = {
+    Application = var.application_name
   }
 }
