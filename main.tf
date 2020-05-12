@@ -18,15 +18,15 @@ module "ha_multi_instance" {
     aws = aws.north-america
   }
 
-  # seutp our instances
+  # setup our instance
   ami_id = var.ami_id
   project = var.project
   user_data = "webserver_install.sh"
 
   # pass vpc details
-  public_subnet1_id = ""
-  public_subnet2_id = ""
-  vpc_id = ""
+  public_subnet1_id = module.vpc.public_subnet1_id
+  public_subnet2_id = module.vpc.public_subnet2_id
+  vpc_id = module.vpc.vpc_id
 
   # setup our domain
   webserver_domain = var.webserver_domain
