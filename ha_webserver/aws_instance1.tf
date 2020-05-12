@@ -7,7 +7,7 @@ resource "aws_instance" "public1" {
   # name.
   key_name = "ha_webserver"
 
-  user_data = file(var.user_data)
+  user_data = file("${path.module}/webserver_install.sh")
 
   vpc_security_group_ids = [
     aws_security_group.this.id]

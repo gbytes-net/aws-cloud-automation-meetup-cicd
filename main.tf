@@ -21,7 +21,6 @@ module "ha_multi_instance" {
   # setup our instance
   ami_id = var.ami_id
   project = var.project
-  user_data = "webserver_install.sh"
 
   # pass vpc details
   public_subnet1_id = module.vpc.public_subnet1_id
