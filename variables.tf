@@ -38,12 +38,12 @@ variable "availability_zone_2" {
 #
 variable "webserver_domain_zone" {
   type = string
-  default = "f1kart.com."
+  default = "expideas.com."
 }
 
 variable "webserver_domain" {
   type = string
-  default = "aws-meetup-cicd.f1kart.com"
+  default = "aws-meetup-cicd.expideas.com"
 }
 
 #
