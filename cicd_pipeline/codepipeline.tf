@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "build_cache" {
   # make sure bucket name is DNS compliant
-  bucket = replace("codepipeline_${var.application_name}_${var.branch}", "_", "-" )
+  bucket = replace("codepipeline_${var.application_name}_${var.branch}_${var.s3_unic_name}", "_", "-" )
   acl = "private"
 
   tags = {
