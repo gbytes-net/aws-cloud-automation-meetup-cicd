@@ -53,7 +53,3 @@ variable "slack_url" {
   type = string
 }
 
-variable "s3_unic_name" {
-  type = string
-  default = "8768kjkjgkgj657657jhgjhg2121212"
-}
